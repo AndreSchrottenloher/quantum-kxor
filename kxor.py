@@ -1,17 +1,57 @@
 
-"""
-This file implements the merging trees of the paper 
-'Improved Quantum Algorithms for the k-XOR Problem' (https://eprint.iacr.org/2021/407)
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-It allows to obtain the optimization results of the paper WITHOUT quantum walks.
+#=========================================================================
+#Copyright (c) 2021
 
-During the optimization, it considers all possible binary trees, which is why the
-time increases significantly with k (it starts to be slow from k = 8).
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
 
-The code relies on the SCIP Optimization suite (https://www.scipopt.org)
-and its python interface pyscipopt.
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
 
-"""
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+
+#=========================================================================
+
+#This project has received funding from the European Research Council (ERC) 
+#under the European Union’s Horizon 2020 research and innovation programme 
+#(grant agreement no. 714294 - acronym QUASYModo), and has been supported
+#by ERC-ADG-ALSTRONGCRYPTO (project 740972).
+
+#=========================================================================
+
+# REQUIREMENT LIST
+#- Python 3.x with x >= 2
+#- the SCIP solver, see https://scip.zib.de/
+#- pyscipopt, see https://github.com/SCIP-Interfaces/PySCIPOpt
+
+#=========================================================================
+
+# Author: André Schrottenloher
+# Date: july 2021
+# Version: 1
+
+# This file implements the merging trees of the paper 
+# 'Improved Quantum Algorithms for the k-XOR Problem' (https://eprint.iacr.org/2021/407)
+
+# It allows to obtain the optimization results of the paper WITHOUT quantum walks.
+
+# During the optimization, it considers all possible binary trees, which is why the
+# time increases significantly with k (it starts to be slow from k = 8).
+
+
 
 from decimal import Decimal
 from fractions import Fraction
